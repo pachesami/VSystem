@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block  content %}
+
+   <h1> {{title}} </h1>
+
+   <ul>
+      {% for estudiante in estudiantes  %}
+      <li>
+         {{estudiante.nombre}} {{estudiante.apellidos}}
+      </li>
+      {% endfor %}
+   </ul>
+   
+
+{% endblock  %}

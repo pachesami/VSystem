@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <title>VSystem</title>
+</head>
+<body>
+    <header></header>
+
+        
+
+    </header>
+
+
+    <nav class="nav">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a style="text-decoration: none;" href="{% url "inicio" %}">Inicio</a>
+            </li>            
+            <li class="nav-item">
+                <a style="text-decoration: none;" href="{% url "Hola_prueba" %}">Prueba</a>
+            </li>
+            <li class="nav-item">
+                <a style="text-decoration: none;" href="{% url "lista-estudiantes" %}">Estudiante</a>
+            </li>               
+        </ul>
+    </nav>
+
+
+    <div id="content">
+
+        <div class="box">
+            {% block content %}
+              
+        
+        
+        
+            {% endblock  %}
+        </div>        
+    </div>
+
+</body>
+</html>
