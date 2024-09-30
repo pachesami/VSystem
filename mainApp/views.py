@@ -7,4 +7,4 @@ def get_prueba(request):
     return render(request, 'prueba.html')
 
 def get_curso(request):
-    return render(request, 'curso.html')
+    return render(request, '../curso/templates/curso.html')

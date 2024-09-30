@@ -23,7 +23,7 @@ from curso.views import get_curso
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name='inicio'),
-    path('lista-estudiantes/', get_estudiantes, name='lista-estudiantes'),
+    path('lista-estudiantes2/', get_estudiantes, name='lista-estudiantes'),
     path('prueba/', get_prueba, name='Hola_prueba'),
     path('curso/', get_curso, name='curso'),
 
