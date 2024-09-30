@@ -10,3 +10,6 @@ def get_estudiantes(request):
         'title': 'Lista de estudiantes',
         'estudiantes': estudiantes
     })
+    
+def get_curso(request):
+    return render (request, 'curso.html')

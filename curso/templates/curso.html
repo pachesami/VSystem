@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Curso</title>
+</head>
+<body>
+    <h1>Lista de Curso</h1>
+    <ul>
+        {% for curso in curso %}
+        <li>{{ curso.nombre }} - {{ curso.duracion }} horas</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
