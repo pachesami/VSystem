@@ -1,11 +1,23 @@
 {% extends "index.html" %}
-{% block  content %}
-    <h1>Lista de Curso</h1>
+{% block content %}
+
+    <h1>Lista de Cursos</h1>
     <ul>
         {% for curso in curso %}
-        <li>{{ curso.nombre }} - {{ curso.duracion }} horas</li>
+        <li>
+            {{ curso.nombre }} - {{ curso.duracion }} horas
+            <ul>
+                <li>Estudiantes:</li>
+                <ul>
+                    {% for estudiante in curso.estudiantes.all %}
+                    <li>{{ estudiante.nombre }} {{ estudiante.apellidos }}</li>
+                    {% empty %}
+                    <li>No hay estudiantes inscritos en este curso.</li>
+                    {% endfor %}
+                </ul>
+            </ul>
+        </li>
         {% endfor %}
     </ul>
 
-
-{% endblock  %}
+{% endblock %}
