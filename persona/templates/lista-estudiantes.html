@@ -39,7 +39,7 @@
   <h2 class="title">Inscribir Persona</h2> 
   <div class="card">
     <div class="card-body">
-      <form action="{% url 'registrar_persona' %}" method="POST">{% csrf_token %}
+      <form action="{% url 'lista-estudiantes' %}" method="POST">{% csrf_token %}
         <div class="form-group">
           <input type="text" name="txtnombre" class="form-control" placeholder="Nombre" required>
         </div>
@@ -69,7 +69,6 @@
   </div>
 </div>
 
-<!-- Script JavaScript para mostrar/ocultar el formulario -->
 <script>
   document.getElementById("toggleFormBtn").addEventListener("click", function() {
     var form = document.getElementById("registrationForm");
