@@ -19,6 +19,8 @@ from django.urls import path
 from mainApp.views import inicio, get_prueba
 from persona.views import get_estudiantes
 from curso.views import get_curso
+from persona.views import registrar_persona
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,6 @@ urlpatterns = [
     path('lista-estudiantes2/', get_estudiantes, name='lista-estudiantes'),
     path('prueba/', get_prueba, name='Hola_prueba'),
     path('curso/', get_curso, name='curso'),
+    path('registrarPersona/', registrar_persona, name='registrar_persona'),
 
 ]
