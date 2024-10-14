@@ -1,83 +1,125 @@
-{% extends "index.html" %}
-{% block content %}
+{% extends "index.html" %} {% block content %}
 
 <!-- Botón para mostrar/ocultar el formulario de inscripción -->
-<button id="toggleFormBtn" class="btn btn-outline-primary btn-lg mb-3" style="border-radius: 25px; transition: background-color 0.3s, color 0.3s;">
-    Agregar Estudiante
+<button
+  id="toggleFormBtn"
+  class="btn btn-outline-primary btn-lg mb-3"
+  style="border-radius: 25px; transition: background-color 0.3s, color 0.3s"
+>
+  Agregar Estudiante
 </button>
 
 <table class="table table-dark table-striped">
-   <thead>
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-     <tr>
-       <th scope="col">#</th>
-       <th scope="col">Nombre</th>
-       <th scope="col">Apellido</th>
-       <th scope="col">Documento</th>
-       <th scope="col">Rol</th>
-     </tr>
-   </thead>
-   <tbody>
-     {% for estudiante in estudiantes %}
-     <tr>
-       <th scope="row">{{ forloop.counter }}</th>
-       <td>{{ estudiante.nombre }}</td>
-       <td>{{ estudiante.apellido }}</td>
-       <td>{{ estudiante.dni }}</td>
-       <td>{{ estudiante.rol }}</td>
-     </tr>
-     {% empty %}
-       <tr>
-           <td colspan="5">No hay estudiantes registrados.</td>
-       </tr>
-     {% endfor %}
-   </tbody>
+  <thead>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for estudiante in estudiantes %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ estudiante.nombre }}</td>
+      <td>{{ estudiante.apellido }}</td>  
+      <td>{{ estudiante.dni }}</td>
+      <td>{{ estudiante.rol }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5">No hay estudiantes registrados.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
 
 <!-- Sección de Inscripción de Persona -->
-<div id="registrationForm" style="display: none;">  <!-- Inicialmente oculto -->
-  <h2 class="title">Inscribir Persona</h2> 
+<div id="registrationForm" style="display: none">
+  <!-- Inicialmente oculto -->
+  <h2 class="title">Inscribir Persona</h2>
   <div class="card">
     <div class="card-body">
-      <form action="{% url 'lista-estudiantes' %}" method="POST">{% csrf_token %}
-        <div class="form-group">
-          <input type="text" name="txtnombre" class="form-control" placeholder="Nombre" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="txtapellido" class="form-control" placeholder="Apellido" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="numdni" class="form-control" placeholder="Dni" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="numtelefono" class="form-control" placeholder="Telefono">
-        </div> 
-        <div class="form-group">
-          <input type="email" name="correo" class="form-control" placeholder="Correo Electrónico" required>
-        </div>
-        <div class="form-group">
-          <input type="date" name="fecha_nacimiento" class="form-control" placeholder="Fecha De Nacimiento" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="txtrol" class="form-control" placeholder="Rol" required>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-success btn-block text-white" value="Guardar" />
-        </div>
+      <!-- lista-estudiantes.html -->
+      <form action="{% url 'lista-estudiantes' %}" method="POST">
+        {% csrf_token %}
+        <!-- Campos del formulario -->
+        <input
+          type="text"
+          name="txtnombre"
+          class="form-control"
+          placeholder="Nombre"
+          required
+        />
+        <input
+          type="text"
+          name="txtapellido"
+          class="form-control"
+          placeholder="Apellido"
+          required
+        />
+        <input
+          type="text"
+          name="numdni"
+          class="form-control"
+          placeholder="DNI"
+          required
+        />
+        <input
+          type="text"
+          name="numtelefono"
+          class="form-control"
+          placeholder="Teléfono"
+          required
+        />
+        <input
+          type="email"
+          name="correo"
+          class="form-control"
+          placeholder="Correo Electrónico"
+          required
+        />
+        <input
+          type="date"
+          name="fecha_nacimiento"
+          class="form-control"
+          placeholder="Fecha de Nacimiento"
+          required
+        />
+        <input
+          type="text"
+          name="txtrol"
+          class="form-control"
+          placeholder="Rol"
+          required
+        />
+        <input
+          type="submit"
+          class="btn btn-success btn-block text-white"
+          value="Guardar"
+        />
       </form>
     </div>
   </div>
 </div>
 
 <script>
-  document.getElementById("toggleFormBtn").addEventListener("click", function() {
-    var form = document.getElementById("registrationForm");
-    if (form.style.display === "none") {
-      form.style.display = "block";  // Muestra el formulario
-    } else {
-      form.style.display = "none";   // Oculta el formulario
-    }
-  });
+  document
+    .getElementById("toggleFormBtn")
+    .addEventListener("click", function () {
+      var form = document.getElementById("registrationForm");
+      if (form.style.display === "none") {
+        form.style.display = "block"; // Muestra el formulario
+      } else {
+        form.style.display = "none"; // Oculta el formulario
+      }
+    });
 </script>
 
 {% endblock %}

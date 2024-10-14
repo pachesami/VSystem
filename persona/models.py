@@ -2,7 +2,7 @@ from django.db import models
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=100)
-    apellidos = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
     dni = models.CharField(max_length=10)
     telefono = models.CharField(max_length=10)
     email = models.EmailField()
