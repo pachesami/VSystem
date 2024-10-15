@@ -1,0 +1,36 @@
+<!-- estudianteCurso.html -->
+{% extends "index.html" %} 
+  {% block content %}
+  <div class="container">
+      <h1>Relación estudiantes y curso</h1>
+  
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Estudiante</th>
+                  <th>Curso</th>
+                  <th>Fecha inicio</th>
+                  <th>Fecha final</th>
+                  <th>Estado</th>
+                  <th>Nota final</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for estudiante_curso in estudiantes_cursos %}
+              <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ estudiante_curso.nombre}}</td>
+                  <td>{{ estudiante_curso.curso}}</td>
+                  <td>{{ estudiante_curso.fechadeinicio }}</td>
+                  <td>{{ estudiante_curso.fechefinal }}</td>
+                  <td>{{ estudiante_curso.estado }}</td>
+                  <td>{{ estudiante_curso.nota_final }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  
+      {% comment %} <a href="{% url 'agregar_estudiante' %}" class="btn btn-primary">Agregar nuevo estudiante</a> {% endcomment %}
+  </div>
+  {% endblock %}

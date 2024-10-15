@@ -1,6 +1,33 @@
-{% extends "index.html" %}
-{% block  content %}
+{% extends "index.html" %} 
+{% block content %}
+<div class="container">
+    <h1>Lista de Matrículas</h1>
 
-   <h1> Hola mundo desde prueba </h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Estudiante</th>
+                <th>Curso</th>
+                <th>Fecha de inicio</th>
+                <th>Estado</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for matricula in matriculas %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ matricula.nombre }} </td>
+                <td>{{ matricula.cursos }}</td>
+                <td>{{ matricula.fecha_de_inicio }}</td>
+                <td><span class="badge bg-warning text-dark">{{ matricula.estado }}</span></td>
+                <td>{{ matricula.costo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-{% endblock content %}
+    {% comment %} <a href="{% url 'agregar_matricula' %}" class="btn btn-primary">Agregar nueva matrícula</a> {% endcomment %}
+</div>
+{% endblock %}
